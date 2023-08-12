@@ -1,0 +1,9 @@
+Version		Status			Task
+0.1		100			Basic autotools working setup 
+0.2		20			Option parsing with all options included
+0.3		0			Taskaddition , fileoperation and Datastruncture creation
+0.4		0			Tasklisting
+0.5		0			Social media integration
+0.6		0			Daemon Addition
+
+
