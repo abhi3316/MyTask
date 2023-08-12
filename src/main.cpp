@@ -1,14 +1,12 @@
-#include <iostream>
 #include "types.h"
-#include <vector>
 
-
+#define LEVEL TD_INFO
 
 using namespace std;
 
 void usage(void)
 {
-	cout << "Abhi's ToDo List App" << endl;
+	TD_I("Abhi's ToDo List App");
 }
 
 
@@ -17,8 +15,8 @@ class TaskEngine {
 		char *name;
 	
 	public:
-		int taskAdd(char *name, u8 day, u8 mon, u64 year);
-		int taskDel(char *name, u8 day, u8 mon, u64 year);
+		td_rc taskAdd(char *name, u8 day, u8 mon, u64 year);
+		td_rc taskDel(char *name, u8 day, u8 mon, u64 year);
 
 };
 
@@ -29,8 +27,14 @@ class TaskDaemon {
 };
 
 
-int main(int argc, char* argv[])
+td_rc main(int argc, char* argv[])
 {
-	usage();
-	return 0;
+
+        for(int i = 0; i< argc ; i++)
+	{
+		TD_I(argv[i]);
+	}
+
+	//usage();
+	return TD_APP_OK;
 }
