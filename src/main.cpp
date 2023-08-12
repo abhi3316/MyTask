@@ -1,36 +1,58 @@
-#include <iostream>
 #include "types.h"
-#include <vector>
+#include <unistd.h>
 
-
+#define LEVEL TD_INFO
 
 using namespace std;
 
 void usage(void)
 {
-	cout << "Abhi's ToDo List App" << endl;
+	TD_I("Abhi's ToDo List App");
 }
 
+/* with this task engine 
+ * task can be added
+ * task can be removed
+ * listing task */
 
 class TaskEngine {
 	private:
 		char *name;
 	
 	public:
-		int taskAdd(char *name, u8 day, u8 mon, u64 year);
-		int taskDel(char *name, u8 day, u8 mon, u64 year);
+		td_rc taskAdd(char *name, u8 day, u8 mon, u64 year);
+		td_rc taskDel(char *name, u8 day, u8 mon, u64 year);
 
 };
-
 
 class TaskDaemon {
 
 
 };
 
-
-int main(int argc, char* argv[])
+td_rc main(int argc, char* argv[])
 {
-	usage();
-	return 0;
+	char option;
+	while((option = getopt(argc, argv ,"ab:h::")) != -1)
+	{
+		switch(option)
+		{
+			case 'a':
+			case 'h':
+				TD_I("Cases define here!");
+				break;
+			default:
+				usage();
+				break;
+		}
+	
+	}	
+/*
+        for(int i = 0; i< argc ; i++)
+	{
+		TD_I(argv[i]);
+	}
+*/
+	//usage();
+	return TD_APP_OK;
 }
