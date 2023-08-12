@@ -1,5 +1,8 @@
 #include <iostream>
 #include "types.h"
+#include <vector>
+
+
 
 using namespace std;
 
@@ -26,7 +29,7 @@ class TaskDaemon {
 };
 
 
-int main(void)
+int main(int argc, char* argv[])
 {
 	usage();
 	return 0;

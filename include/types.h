@@ -1,3 +1,8 @@
+
+#ifndef __TYPES_H
+#define __TYPES_H
+
+
 #include <cstdint>
 
 
@@ -9,4 +14,7 @@ typedef uint64_t u64;
 
 
 uint32_t TD_APP_OK;
+
+
+#endif
 
