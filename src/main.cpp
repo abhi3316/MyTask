@@ -4,6 +4,7 @@
 #define LEVEL TD_INFO
 
 using namespace std;
+using namespace task_list;
 
 void usage(void)
 {
@@ -32,27 +33,22 @@ class TaskDaemon {
 
 td_rc main(int argc, char* argv[])
 {
-	char option;
-	while((option = getopt(argc, argv ,"ab:h::")) != -1)
+	char option, var;
+	task_list::task_t task;
+	while((option = getopt(argc, argv ,"t:d:m:y")) != -1)
 	{
-		switch(option)
+		if(option == 't')
 		{
-			case 'a':
-			case 'h':
-				TD_I("Cases define here!");
-				break;
-			default:
-				usage();
-				break;
+			task.name = (char*)malloc(sizeof(optarg));
+			strcpy(task.name ,optarg);
 		}
-	
-	}	
-/*
-        for(int i = 0; i< argc ; i++)
-	{
-		TD_I(argv[i]);
+		if (option == 'd')
+		{
+			TD_I(optarg);
+		}
+	       	//TD_I(sizeof(task));	
 	}
-*/
-	//usage();
+	TD_I(task.name);
+	TD_I(task.date);	
 	return TD_APP_OK;
 }
