@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstdint>
 #include <cstring>
+#include <bits/stdc++.h>
 #include <vector>
 #include "logs.h"
 
